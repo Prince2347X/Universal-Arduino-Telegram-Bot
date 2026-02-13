@@ -15,7 +15,7 @@ int message_id = bot.messages[i].message_id;
 bot.sendMessage(chat_id, "You said: " + text, "", 0, message_id);
 ```
 
-The fifth parameter is `reply_to_message_id`, which tells Telegram to reply to that specific message.
+The last parameter (`message_id` value) is passed to the `reply_to_message_id` parameter of `sendMessage()`, which tells Telegram to reply to that specific message.
 
 ## Usage
 
