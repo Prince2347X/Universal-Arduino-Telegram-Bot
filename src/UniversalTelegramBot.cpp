@@ -547,7 +547,7 @@ bool UniversalTelegramBot::sendSimpleMessage(const String& chat_id, const String
       command += text;
       command += F("&parse_mode=");
       command += parse_mode;
-      if (reply_to_message_id && reply_to_message_id != 0) {
+      if (reply_to_message_id) {
         command += F("&reply_to_message_id=");
         command += String(reply_to_message_id);
       }
@@ -576,7 +576,7 @@ bool UniversalTelegramBot::sendMessage(const String& chat_id, const String& text
   if (parse_mode != "")
     payload["parse_mode"] = parse_mode;
 
-  if (reply_to_message_id && reply_to_message_id != 0)
+  if (reply_to_message_id)
     payload["reply_to_message_id"] = reply_to_message_id;
 
   return sendPostMessage(payload.as<JsonObject>(), message_id); // if message id == 0 then edit is false, else edit is true
@@ -593,7 +593,7 @@ bool UniversalTelegramBot::sendMessageWithReplyKeyboard(
   if (parse_mode != "")
     payload["parse_mode"] = parse_mode;
 
-  if (reply_to_message_id && reply_to_message_id != 0)
+  if (reply_to_message_id)
     payload["reply_to_message_id"] = reply_to_message_id;
 
   JsonObject replyMarkup = payload.createNestedObject("reply_markup");
@@ -631,7 +631,7 @@ bool UniversalTelegramBot::sendMessageWithInlineKeyboard(const String& chat_id,
   if (parse_mode != "")
     payload["parse_mode"] = parse_mode;
 
-  if (reply_to_message_id && reply_to_message_id != 0)
+  if (reply_to_message_id)
     payload["reply_to_message_id"] = reply_to_message_id;
 
   JsonObject replyMarkup = payload.createNestedObject("reply_markup");
