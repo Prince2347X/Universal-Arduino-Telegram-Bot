@@ -84,14 +84,14 @@ public:
   bool readHTTPAnswer(String &body, String &headers);
   bool getMe();
 
-  bool sendSimpleMessage(const String& chat_id, const String& text, const String& parse_mode);
-  bool sendMessage(const String& chat_id, const String& text, const String& parse_mode = "", int message_id = 0);
+  bool sendSimpleMessage(const String& chat_id, const String& text, const String& parse_mode, int reply_to_message_id = 0);
+  bool sendMessage(const String& chat_id, const String& text, const String& parse_mode = "", int message_id = 0, int reply_to_message_id = 0);
   bool sendMessageWithReplyKeyboard(const String& chat_id, const String& text,
                                     const String& parse_mode, const String& keyboard,
                                     bool resize = false, bool oneTime = false,
-                                    bool selective = false);
+                                    bool selective = false, int reply_to_message_id = 0);
   bool sendMessageWithInlineKeyboard(const String& chat_id, const String& text,
-                                     const String& parse_mode, const String& keyboard, int message_id = 0);
+                                     const String& parse_mode, const String& keyboard, int message_id = 0, int reply_to_message_id = 0);
 
   bool sendChatAction(const String& chat_id, const String& text);
 
